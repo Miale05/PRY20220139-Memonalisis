@@ -28,6 +28,10 @@ public class PlaceOnPlane : MonoBehaviour
         set { prefabObject = value; }
     }
 
+    public int maxObjects;
+    public List<GameObject> objects;
+
+
     private void Awake() {
         raycastManager = GetComponent<ARRaycastManager>();
 
