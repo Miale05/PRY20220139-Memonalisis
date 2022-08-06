@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AR/AR_Test.unity
     guid: 588185ad3f1b30e4589614e7ce7536ba
+  - enabled: 1
+    path: Assets/Scenes/Memoria.unity
+    guid: 8706a76435610a04181ed5a99f3a6ce2
+  - enabled: 1
+    path: Assets/Scenes/AR/AR_Scene2.unity
+    guid: 40b8edc531f29254ca83a696213df51f
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 94ca1d062cfbb8a4daec53fb684ea5a4, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f412e4a460b13394ab6bdc6fbb04a57d, type: 2}

@@ -4,33 +4,13 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-public enum LoadedFamiliar
-{
-    father,
-    mother,
-    brother,
-    sister,
-    uncle,
-    aunt,
-    cousin_M,
-    cousin_F,
-    grandfather,
-    grandmother
-}
-
-public enum Emotions
-{
-    emotion1,
-    emotion2,
-    emotion3,
-    emotion4
-}
-
 public class MemoryManager : MonoBehaviour
 {
     public static MemoryManager instance;
 
     public LoadedFamiliar loadedFamiliar;
+    public int modelVariations;
+
     public Transform familyContainer;
     public List<GameObject> basePieces;
 
@@ -45,16 +25,50 @@ public class MemoryManager : MonoBehaviour
     void Start()
     {
         instance = this;
+
+        loadedFamiliar = GeneralGameManager.instance.selectedFamiliar;
+        modelVariations = familyContainer.Find(loadedFamiliar.ToString()).childCount;
+        GeneralGameManager.instance.SetMaxModelsLoaded(modelVariations*2);
+
         LoadBasePieces();
 
-        RefreshActivePieces();
-        InitializePieces();
+        //REMOVE AFTER TESTS
+        //StartMinigame();
     }
 
     // Update is called once per frame
     void Update()
     {
         //Debug.Log(MemoryManager.instance.familyContainer.name);
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartMinigame();
+        }
+    }
+
+    public void StartMinigame()
+    {
+        RefreshActivePieces();
+
+        Debug.LogError(MemorySpawnableManager.instance.CheckMaxModelsCount());
+        if (MemorySpawnableManager.instance.CheckMaxModelsCount())
+        {
+            InitializePieces();
+            ShufflePieces();
+
+            //Generado por InitializePieces
+            ClearTrash();
+        }
+    }
+
+    public void ClearTrash()
+    {
+        GameObject temp = GameObject.Find("Trash");
+
+        for (int i = 0; i < temp.transform.childCount; i++)
+        {
+            Destroy(temp.transform.GetChild(i).gameObject);
+        }
     }
 
     public void InitializePieces()
@@ -89,6 +103,7 @@ public class MemoryManager : MonoBehaviour
 
     public void RefreshActivePieces()
     {
+        activePieces.Clear();
         for (int i = 0; i < activePieceContainer.childCount; i++)
         {
             activePieces.Add(activePieceContainer.GetChild(i).gameObject);
@@ -111,19 +126,19 @@ public class MemoryManager : MonoBehaviour
             currentPiece = piece;
         } else
         {
-            if (currentPiece.GetComponent<MemoryPiece>().emotionName == piece.GetComponent<MemoryPiece>().emotionName)
+            if (currentPiece.GetComponent<MemoryPiece>().emotionName == piece.GetComponent<MemoryPiece>().emotionName && piece != currentPiece)
             {
                 Debug.Log("CORRECTO");
                 activePieces.Remove(piece);
                 activePieces.Remove(currentPiece);
-                currentPiece.GetComponent<MemoryPiece>().Hide(false,Color.green);
-                piece.GetComponent<MemoryPiece>().Hide(false,Color.green);
+                currentPiece.GetComponent<MemoryPiece>().Hide(false);
+                piece.GetComponent<MemoryPiece>().Hide(false);
                 currentPiece = null;
             } else
             {
                 Debug.Log("ERROR!!!");
-                currentPiece.GetComponent<MemoryPiece>().Hide(true,Color.red);
-                piece.GetComponent<MemoryPiece>().Hide(true,Color.red);
+                currentPiece.GetComponent<MemoryPiece>().Hide(true);
+                piece.GetComponent<MemoryPiece>().Hide(true);
                 currentPiece = null;
             }
         }

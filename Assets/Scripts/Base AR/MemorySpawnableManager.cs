@@ -2,22 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
+
 using UnityEngine.XR.ARFoundation;
 
-public class SpawnableManager : MonoBehaviour
+public class MemorySpawnableManager : MonoBehaviour
 {
+    public static MemorySpawnableManager instance;
     [SerializeField]
     ARRaycastManager m_RaycastManager;
     List<ARRaycastHit> m_Hits = new List<ARRaycastHit>();
     [SerializeField]
     GameObject spawnablePrefab;
 
+    public Transform spawnParent;
+    int maxModels;
+    public int currentModelsCount;
+
     Camera arCam;
     GameObject spawnedObject;
+
+    public TextMeshProUGUI text;
+
+    public bool CheckMaxModelsCount()
+    {
+        maxModels = GeneralGameManager.instance.maxModelsLoaded;
+        return maxModels == currentModelsCount;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         spawnedObject = null;
         arCam = GameObject.Find("AR Camera").GetComponent<Camera>();
     }
@@ -25,8 +41,18 @@ public class SpawnableManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("TEST");
+            currentModelsCount++;
+            SpawnPrefab(Vector3.zero);
+        }
+
+
         if (Input.touchCount == 0)
         {
+            text.text = "exited";
             return;
         }
 
@@ -43,15 +69,16 @@ public class SpawnableManager : MonoBehaviour
                     {
                         spawnedObject = hit.collider.gameObject;
                     }
-                    else
+                    else if(currentModelsCount < maxModels)
                     {
+                        text.text = "Spawn";
+                        currentModelsCount++;
                         SpawnPrefab(m_Hits[0].pose.position);
+                    } else
+                    {
+                        text.text = "NADA";
                     }
                 }
-            }
-            else if (Input.GetTouch(0).phase == TouchPhase.Moved && spawnedObject != null)
-            {
-                spawnedObject.transform.position = m_Hits[0].pose.position;
             }
 
             if (Input.GetTouch(0).phase == TouchPhase.Ended)
@@ -63,6 +90,6 @@ public class SpawnableManager : MonoBehaviour
 
     private void SpawnPrefab(Vector3 spawnPosition)
     {
-        spawnedObject = Instantiate(spawnablePrefab, spawnPosition, Quaternion.identity);
+        spawnedObject = Instantiate(spawnablePrefab, spawnPosition, Quaternion.identity,spawnParent);
     }
 }

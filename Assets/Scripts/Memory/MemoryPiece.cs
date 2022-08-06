@@ -12,6 +12,9 @@ public class MemoryPiece : MonoBehaviour
     public float hideFadeTime = 1.5f;
     float fadeStart;
 
+    float holdTimeStart;
+    public float holdTimeToDestroy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,21 +28,15 @@ public class MemoryPiece : MonoBehaviour
         {
             if (Time.time - fadeStart >= hideFadeTime)
             {
-                transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(1).gameObject.SetActive(false);
                 hidePiece = false;
-                ChangeBaseColor(Color.white);
             }
         }
     }
 
-    //TEST
-    private void OnMouseUp()
-    {
-        Select();
-    }
-
     public void Select()
     {
+        holdTimeStart = Time.time;
         if (isActive)
         {
             Show();
@@ -47,34 +44,42 @@ public class MemoryPiece : MonoBehaviour
         }
     }
 
-    public void Hide(bool keepActive, Color color)
+    public void DeSelect()
     {
+        if (Time.time - holdTimeStart >= holdTimeToDestroy)
+        {
+            MemorySpawnableManager.instance.currentModelsCount -= 1;
+            Destroy(gameObject);
+        }
+    }
+
+    public void Hide(bool keepActive)
+    {
+        fadeStart = Time.time;
         isActive = keepActive;
         hidePiece = true;
-        fadeStart = Time.time;
-        ChangeBaseColor(color);
     }
 
     public void Show()
     {
-        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(true);
     }
 
     public void InitializePiece(GameObject obj,string name)
     {
+        if (transform.childCount > 1)
+        {
+            transform.GetChild(1).SetParent(GameObject.Find("Trash").transform);
+        }
+
         GameObject temp = Instantiate(obj, transform.position, Quaternion.identity);
         temp.transform.SetParent(transform);
         emotionName = name;
 
-        transform.GetChild(0).position += new Vector3(0, 0.35f, 0);
-        transform.GetChild(0).localScale = new Vector3(0.5f,5,0.5f);
+        transform.GetChild(1).localPosition = new Vector3(0,1,0);
+        transform.GetChild(1).localScale = new Vector3(0.5f,5,0.5f);
 
         Show();
-        Hide(true,Color.white);
-    }
-
-    public void ChangeBaseColor(Color color)
-    {
-        GetComponent<Renderer>().material.SetColor("_Color", color);
+        Hide(true);
     }
 }

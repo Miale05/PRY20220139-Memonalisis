@@ -2667,7 +2667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d74f22f1c199474dbca04296177dc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placedPrefab: {fileID: 7123598262566353828, guid: 715d984bc5c1eed42aec9fa2bd1527bd, type: 3}
+  placedPrefab: {fileID: 7195914737671726362, guid: 69563e61851381c418fb9cec5b3c4fb1, type: 3}
   arCamera: {fileID: 753466318}
 --- !u!1 &1018982551
 GameObject:
@@ -3432,6 +3432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1271633672}
   - component: {fileID: 1271633671}
+  - component: {fileID: 1271633673}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3466,6 +3467,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1271633673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271633670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc98219a83dff145947365dc914d06e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapThreshold: 0.2
+  swipeThreshold: 100
+  referenceDpi: 200
+  guiLayers:
+    serializedVersion: 2
+    m_Bits: 32
+  useTouch: 1
+  useHover: 1
+  useMouse: 1
+  useSimulator: 1
+  disableMouseEmulation: 1
+  recordFingers: 1
+  recordThreshold: 5
+  recordLimit: 10
 --- !u!1 &1311004021
 GameObject:
   m_ObjectHideFlags: 0
