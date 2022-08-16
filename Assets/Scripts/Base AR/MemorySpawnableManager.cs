@@ -11,6 +11,8 @@ public class MemorySpawnableManager : MonoBehaviour
     public static MemorySpawnableManager instance;
     [SerializeField]
     ARRaycastManager m_RaycastManager;
+    [SerializeField]
+    ARPlaneManager m_PlaneManager;
     List<ARRaycastHit> m_Hits = new List<ARRaycastHit>();
     [SerializeField]
     GameObject spawnablePrefab;
@@ -27,7 +29,10 @@ public class MemorySpawnableManager : MonoBehaviour
     public bool CheckMaxModelsCount()
     {
         maxModels = GeneralGameManager.instance.maxModelsLoaded;
-        return maxModels == currentModelsCount;
+
+        //Remove lines about model count since the model spawned already has all the pieces
+        //return maxModels == currentModelsCount;
+        return true;
     }
 
     // Start is called before the first frame update
@@ -36,6 +41,12 @@ public class MemorySpawnableManager : MonoBehaviour
         instance = this;
         spawnedObject = null;
         arCam = GameObject.Find("AR Camera").GetComponent<Camera>();
+    }
+
+    public void TogglePlanes(bool state)
+    {
+        m_PlaneManager.SetTrackablesActive(state);
+        m_PlaneManager.enabled = state;
     }
 
     // Update is called once per frame
@@ -47,13 +58,6 @@ public class MemorySpawnableManager : MonoBehaviour
             Debug.Log("TEST");
             currentModelsCount++;
             SpawnPrefab(Vector3.zero);
-        }
-
-
-        if (Input.touchCount == 0)
-        {
-            text.text = "exited";
-            return;
         }
 
         RaycastHit hit;
@@ -69,7 +73,8 @@ public class MemorySpawnableManager : MonoBehaviour
                     {
                         spawnedObject = hit.collider.gameObject;
                     }
-                    else if(currentModelsCount < maxModels)
+                    //else if(currentModelsCount < maxModels)    Remove lines about model count since the model spawned already has all the pieces
+                    else if (currentModelsCount < 1)
                     {
                         text.text = "Spawn";
                         currentModelsCount++;

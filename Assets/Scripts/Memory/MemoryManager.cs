@@ -17,7 +17,7 @@ public class MemoryManager : MonoBehaviour
     public Transform activePieceContainer;
     public List<GameObject> activePieces;
 
-    public GameObject currentPiece;
+    GameObject currentPiece;
 
     
 
@@ -50,8 +50,9 @@ public class MemoryManager : MonoBehaviour
     {
         RefreshActivePieces();
 
-        Debug.LogError(MemorySpawnableManager.instance.CheckMaxModelsCount());
-        if (MemorySpawnableManager.instance.CheckMaxModelsCount())
+        //Debug.LogError(MemorySpawnableManager.instance.CheckMaxModelsCount());
+        //if (MemorySpawnableManager.instance.CheckMaxModelsCount())
+        if (MemorySpawnableManager.instance.currentModelsCount >= 1)
         {
             InitializePieces();
             ShufflePieces();
@@ -104,9 +105,9 @@ public class MemoryManager : MonoBehaviour
     public void RefreshActivePieces()
     {
         activePieces.Clear();
-        for (int i = 0; i < activePieceContainer.childCount; i++)
+        for (int i = 0; i < activePieceContainer.GetChild(0).childCount; i++)
         {
-            activePieces.Add(activePieceContainer.GetChild(i).gameObject);
+            activePieces.Add(activePieceContainer.GetChild(0).GetChild(i).gameObject);
         }
     }
 

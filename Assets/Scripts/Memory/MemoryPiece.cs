@@ -13,13 +13,8 @@ public class MemoryPiece : MonoBehaviour
     float fadeStart;
 
     float holdTimeStart;
-    public float holdTimeToDestroy;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool hasEmote;
+    public FaceCamera emote;
 
     // Update is called once per frame
     void Update()
@@ -30,6 +25,12 @@ public class MemoryPiece : MonoBehaviour
             {
                 transform.GetChild(1).gameObject.SetActive(false);
                 hidePiece = false;
+
+                if (hasEmote)
+                {
+                    Debug.Log("Change to FALSE");
+                    emote.ChangeSpriteRendererState(false);
+                }
             }
         }
     }
@@ -46,11 +47,13 @@ public class MemoryPiece : MonoBehaviour
 
     public void DeSelect()
     {
+        /*
         if (Time.time - holdTimeStart >= holdTimeToDestroy)
         {
             MemorySpawnableManager.instance.currentModelsCount -= 1;
             Destroy(gameObject);
         }
+        */
     }
 
     public void Hide(bool keepActive)
@@ -63,6 +66,11 @@ public class MemoryPiece : MonoBehaviour
     public void Show()
     {
         transform.GetChild(1).gameObject.SetActive(true);
+        if (hasEmote)
+        {
+            Debug.Log("Change to TRUE");
+            emote.ChangeSpriteRendererState(true);
+        }
     }
 
     public void InitializePiece(GameObject obj,string name)

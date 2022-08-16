@@ -1374,6 +1374,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1030066252}
+        m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
+        m_MethodName: CallSelectFamiliar
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: none
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &409859048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,7 +1935,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1394183504}
   m_HandleRect: {fileID: 1394183503}
   m_Direction: 2
-  m_Value: 0.5
+  m_Value: 1
   m_Size: 0.39130434
   m_NumberOfSteps: 4
   m_OnValueChanged:
@@ -2341,9 +2353,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'v1.0.07
-
-'
+  m_text: v1.0.11
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4322,7 +4332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -35.00001}
+  m_AnchoredPosition: {x: 0, y: -105.00003}
   m_SizeDelta: {x: 220, y: 345}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1187900905
@@ -4616,7 +4626,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: AR_Test
+          m_StringArgument: Analisis
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1267430127
@@ -5211,8 +5221,8 @@ RectTransform:
   m_Father: {fileID: 1309661478}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.40579712}
-  m_AnchorMax: {x: 1, y: 0.7971015}
+  m_AnchorMin: {x: 0, y: 0.6086956}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000015258789, y: -0.000022888184}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7069,7 +7079,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: AR_Test
+          m_StringArgument: Animales
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1846596494

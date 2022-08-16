@@ -19,10 +19,10 @@ public enum LoadedFamiliar
 
 public enum Emotions
 {
-    emotion1,
-    emotion2,
-    emotion3,
-    emotion4
+    angry,
+    happy,
+    scared,
+    sad
 }
 
 public class GeneralGameManager : MonoBehaviour
