@@ -132,6 +132,9 @@ public class MemoryManager : MonoBehaviour
                 Debug.Log("CORRECTO");
                 activePieces.Remove(piece);
                 activePieces.Remove(currentPiece);
+
+                currentPiece.GetComponent<MemoryPiece>().hideFadeTime = 999999;
+                piece.GetComponent<MemoryPiece>().hideFadeTime = 999999;
                 currentPiece.GetComponent<MemoryPiece>().Hide(false);
                 piece.GetComponent<MemoryPiece>().Hide(false);
                 currentPiece = null;
