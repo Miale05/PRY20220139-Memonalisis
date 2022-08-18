@@ -396,6 +396,7 @@ MonoBehaviour:
   hideFadeTime: 1.5
   hasEmote: 1
   emote: {fileID: 5184949215320360017}
+  boardReference: {fileID: 4750560950845769740}
 --- !u!114 &4750560949253565127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,6 +550,7 @@ MonoBehaviour:
   hideFadeTime: 1.5
   hasEmote: 1
   emote: {fileID: 8944632649672817715}
+  boardReference: {fileID: 4750560950845769740}
 --- !u!114 &4750560949356709753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,6 +1032,7 @@ MonoBehaviour:
   hideFadeTime: 1.5
   hasEmote: 1
   emote: {fileID: 5357361037394264706}
+  boardReference: {fileID: 4750560950845769740}
 --- !u!114 &4750560949710429958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,6 +1254,7 @@ MonoBehaviour:
   hideFadeTime: 1.5
   hasEmote: 1
   emote: {fileID: 739672653519248217}
+  boardReference: {fileID: 4750560950845769740}
 --- !u!114 &4750560949889657428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1373,6 +1377,7 @@ MonoBehaviour:
   hideFadeTime: 1.5
   hasEmote: 1
   emote: {fileID: 508893767224804106}
+  boardReference: {fileID: 4750560950845769740}
 --- !u!114 &4750560949984649863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1526,6 +1531,7 @@ MonoBehaviour:
   hideFadeTime: 1.5
   hasEmote: 1
   emote: {fileID: 9037350627792171626}
+  boardReference: {fileID: 4750560950845769740}
 --- !u!114 &4750560950182291661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2010,7 +2016,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4750560950845769743}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: -2.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2025,7 +2031,7 @@ Transform:
   - {fileID: 4750560949889657430}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!114 &4750560950845769741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2123,6 +2129,7 @@ MonoBehaviour:
   hideFadeTime: 1.5
   hasEmote: 1
   emote: {fileID: 6883345104890865614}
+  boardReference: {fileID: 4750560950845769740}
 --- !u!114 &4750560951164617444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2760,6 +2767,7 @@ MonoBehaviour:
   hideFadeTime: 1.5
   hasEmote: 1
   emote: {fileID: 8568259680133498279}
+  boardReference: {fileID: 4750560950845769740}
 --- !u!114 &977578095455250154
 MonoBehaviour:
   m_ObjectHideFlags: 0

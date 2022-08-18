@@ -51,7 +51,9 @@ MonoBehaviour:
   isActive: 0
   emotionName: 
   hideFadeTime: 999999
-  holdTimeToDestroy: 5
+  hasEmote: 0
+  emote: {fileID: 0}
+  boardReference: {fileID: 5390562061847529338}
 --- !u!114 &123338347250997736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +226,7 @@ MonoBehaviour:
   sad: {fileID: 21300000, guid: e0106dd611d656847845584567c95257, type: 3}
   thisParent: {fileID: 5390562063615795271}
   parentPiece: {fileID: 5390562063072126237}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &982579578574276094
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +330,7 @@ MonoBehaviour:
   sad: {fileID: 21300000, guid: e0106dd611d656847845584567c95257, type: 3}
   thisParent: {fileID: 5390562063046975481}
   parentPiece: {fileID: 5390562062857048179}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &3275752780036021414
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +465,7 @@ MonoBehaviour:
   sad: {fileID: 21300000, guid: e0106dd611d656847845584567c95257, type: 3}
   thisParent: {fileID: 5390562063593995264}
   parentPiece: {fileID: 5390562062199803277}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &4072638364204756028
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +631,7 @@ MonoBehaviour:
   sad: {fileID: 21300000, guid: e0106dd611d656847845584567c95257, type: 3}
   thisParent: {fileID: 5390562062638262403}
   parentPiece: {fileID: 5390562063328913338}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &5390562061844715011
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +688,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5390562061847529337}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: -2.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -699,7 +705,7 @@ Transform:
   - {fileID: 3236021251301634766}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!114 &5390562061847529339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -925,7 +931,9 @@ MonoBehaviour:
   isActive: 0
   emotionName: 
   hideFadeTime: 999999
-  holdTimeToDestroy: 5
+  hasEmote: 0
+  emote: {fileID: 0}
+  boardReference: {fileID: 5390562061847529338}
 --- !u!114 &5390562062199803282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,7 +1283,9 @@ MonoBehaviour:
   isActive: 0
   emotionName: 
   hideFadeTime: 999999
-  holdTimeToDestroy: 5
+  hasEmote: 0
+  emote: {fileID: 0}
+  boardReference: {fileID: 5390562061847529338}
 --- !u!114 &5390562062857048176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1526,7 +1536,9 @@ MonoBehaviour:
   isActive: 0
   emotionName: 
   hideFadeTime: 999999
-  holdTimeToDestroy: 5
+  hasEmote: 0
+  emote: {fileID: 0}
+  boardReference: {fileID: 5390562061847529338}
 --- !u!114 &5390562063072126242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1647,7 +1659,9 @@ MonoBehaviour:
   isActive: 0
   emotionName: 
   hideFadeTime: 999999
-  holdTimeToDestroy: 5
+  hasEmote: 0
+  emote: {fileID: 0}
+  boardReference: {fileID: 5390562061847529338}
 --- !u!114 &5390562063132323313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1799,7 +1813,9 @@ MonoBehaviour:
   isActive: 0
   emotionName: 
   hideFadeTime: 999999
-  holdTimeToDestroy: 5
+  hasEmote: 0
+  emote: {fileID: 0}
+  boardReference: {fileID: 5390562061847529338}
 --- !u!114 &5390562063328913339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1951,7 +1967,9 @@ MonoBehaviour:
   isActive: 0
   emotionName: 
   hideFadeTime: 999999
-  holdTimeToDestroy: 5
+  hasEmote: 0
+  emote: {fileID: 0}
+  boardReference: {fileID: 5390562061847529338}
 --- !u!114 &5390562063574001073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2171,7 +2189,9 @@ MonoBehaviour:
   isActive: 0
   emotionName: 
   hideFadeTime: 999999
-  holdTimeToDestroy: 5
+  hasEmote: 0
+  emote: {fileID: 0}
+  boardReference: {fileID: 5390562061847529338}
 --- !u!114 &5390562063609251855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2573,6 +2593,7 @@ MonoBehaviour:
   sad: {fileID: 21300000, guid: e0106dd611d656847845584567c95257, type: 3}
   thisParent: {fileID: 5390562062732785350}
   parentPiece: {fileID: 5390562063132323312}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &5924550192177484170
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,6 +2697,7 @@ MonoBehaviour:
   sad: {fileID: 21300000, guid: e0106dd611d656847845584567c95257, type: 3}
   thisParent: {fileID: 5390562063879529593}
   parentPiece: {fileID: 5390562063609251854}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &6133086385367925184
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,6 +2999,7 @@ MonoBehaviour:
   sad: {fileID: 21300000, guid: e0106dd611d656847845584567c95257, type: 3}
   thisParent: {fileID: 7286097262356703382}
   parentPiece: {fileID: 5554538428698290531}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &6329896075078395005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,6 +3103,7 @@ MonoBehaviour:
   sad: {fileID: 21300000, guid: e0106dd611d656847845584567c95257, type: 3}
   thisParent: {fileID: 5390562061902544750}
   parentPiece: {fileID: 5390562063574001072}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &7314091419704904562
 GameObject:
   m_ObjectHideFlags: 0
@@ -3183,6 +3207,7 @@ MonoBehaviour:
   sad: {fileID: 21300000, guid: e0106dd611d656847845584567c95257, type: 3}
   thisParent: {fileID: 828757842201237702}
   parentPiece: {fileID: 297119371077505914}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &7993516982997529423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3234,7 +3259,9 @@ MonoBehaviour:
   isActive: 0
   emotionName: 
   hideFadeTime: 999999
-  holdTimeToDestroy: 5
+  hasEmote: 0
+  emote: {fileID: 0}
+  boardReference: {fileID: 5390562061847529338}
 --- !u!114 &820523703678320511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3355,7 +3382,9 @@ MonoBehaviour:
   isActive: 0
   emotionName: 
   hideFadeTime: 999999
-  holdTimeToDestroy: 5
+  hasEmote: 0
+  emote: {fileID: 0}
+  boardReference: {fileID: 5390562061847529338}
 --- !u!114 &482856820458629532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3528,6 +3557,7 @@ MonoBehaviour:
   sad: {fileID: 21300000, guid: e0106dd611d656847845584567c95257, type: 3}
   thisParent: {fileID: 6650030335457461019}
   parentPiece: {fileID: 8183552389305013175}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &8810400823952408494
 GameObject:
   m_ObjectHideFlags: 0

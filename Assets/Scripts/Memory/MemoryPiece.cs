@@ -16,6 +16,8 @@ public class MemoryPiece : MonoBehaviour
     public bool hasEmote;
     public FaceCamera emote;
 
+    public Transform boardReference;
+
     // Update is called once per frame
     void Update()
     {
@@ -80,7 +82,7 @@ public class MemoryPiece : MonoBehaviour
             transform.GetChild(1).SetParent(GameObject.Find("Trash").transform);
         }
 
-        GameObject temp = Instantiate(obj, transform.position, Quaternion.identity);
+        GameObject temp = Instantiate(obj, transform.position, boardReference.rotation);
         temp.transform.SetParent(transform);
         emotionName = name;
 
