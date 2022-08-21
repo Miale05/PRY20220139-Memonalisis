@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 public class MemoryManager : MonoBehaviour
 {
@@ -19,7 +20,11 @@ public class MemoryManager : MonoBehaviour
 
     GameObject currentPiece;
 
-    
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI timerText2;
+    public float timePassed;
+    float timerStart;
+    public bool ongoingGame;
 
     // Start is called before the first frame update
     void Start()
@@ -44,10 +49,30 @@ public class MemoryManager : MonoBehaviour
         {
             StartMinigame();
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            timerStart -= 60;
+        }
+
+        if (ongoingGame)
+        {
+            //Change time
+            TimeSpan time = TimeSpan.FromSeconds(Time.time - timerStart);
+            timerText.text = string.Format("{0:00}:{1:00}", time.TotalMinutes, time.Seconds);
+            timerText2.text = string.Format("{0:00}:{1:00}", time.TotalMinutes, time.Seconds);
+
+        }
     }
 
     public void StartMinigame()
     {
+        timerStart = Time.time;
+        ongoingGame = true;
+        timerText.color = Color.white;
+        timerText2.color = Color.white;
+
+
         RefreshActivePieces();
 
         //Debug.LogError(MemorySpawnableManager.instance.CheckMaxModelsCount());
@@ -136,6 +161,8 @@ public class MemoryManager : MonoBehaviour
                 currentPiece.GetComponent<MemoryPiece>().isActive = false;
                 piece.GetComponent<MemoryPiece>().isActive = false;
                 currentPiece = null;
+
+                CheckAllPieces();
             } else
             {
                 Debug.Log("ERROR!!!");
@@ -144,5 +171,21 @@ public class MemoryManager : MonoBehaviour
                 currentPiece = null;
             }
         }
+    }
+
+    public void CheckAllPieces()
+    {
+        foreach (GameObject item in activePieces)
+        {
+            MemoryPiece temp = item.GetComponent<MemoryPiece>();
+            if (temp.isActive)
+            {
+                return;
+            }
+        }
+
+        timerText.color = Color.green;
+        timerText2.color = Color.green;
+        ongoingGame = false;
     }
 }

@@ -10,6 +10,7 @@ public class MemoryPiece : MonoBehaviour
     public string emotionName = "";
     bool hidePiece = false;
     public float hideFadeTime = 1.5f;
+    float extraFadeTime = 0;
     float fadeStart;
 
     float holdTimeStart;
@@ -23,10 +24,11 @@ public class MemoryPiece : MonoBehaviour
     {
         if (hidePiece)
         {
-            if (Time.time - fadeStart >= hideFadeTime)
+            if (Time.time - fadeStart >= hideFadeTime + extraFadeTime)
             {
                 transform.GetChild(1).gameObject.SetActive(false);
                 hidePiece = false;
+                extraFadeTime = 0;
 
                 if (hasEmote)
                 {
@@ -58,11 +60,13 @@ public class MemoryPiece : MonoBehaviour
         */
     }
 
-    public void Hide(bool keepActive)
+    public void Hide(bool keepActive,float extraHideTime = 0)
     {
         fadeStart = Time.time;
         isActive = keepActive;
         hidePiece = true;
+
+        extraFadeTime = extraHideTime;
     }
 
     public void Show()
@@ -90,6 +94,6 @@ public class MemoryPiece : MonoBehaviour
         transform.GetChild(1).localScale = new Vector3(0.5f,5,0.5f);
 
         Show();
-        Hide(true);
+        Hide(true,3.5f);
     }
 }
