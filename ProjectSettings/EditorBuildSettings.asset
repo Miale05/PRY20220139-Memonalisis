@@ -12,14 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 41b1c85a43b689b4bbea6a839f5449f2
   - enabled: 1
-    path: Assets/Scenes/AR/AR_Test.unity
-    guid: 588185ad3f1b30e4589614e7ce7536ba
-  - enabled: 1
     path: Assets/Scenes/Memoria.unity
     guid: 8706a76435610a04181ed5a99f3a6ce2
-  - enabled: 1
-    path: Assets/Scenes/AR/AR_Scene2.unity
-    guid: 40b8edc531f29254ca83a696213df51f
   - enabled: 1
     path: Assets/Scenes/Analisis.unity
     guid: 3e3b82282efdba54b91c31d6c6e0a245
