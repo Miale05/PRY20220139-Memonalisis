@@ -3259,7 +3259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v1.1.6
+  m_text: v1.1.7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5804,6 +5804,18 @@ MonoBehaviour:
           m_StringArgument: Analisis
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1030066252}
+        m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
+        m_MethodName: SetScreenToLandscape
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1267430127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6534,6 +6546,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Memoria
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1030066252}
+        m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
+        m_MethodName: SetScreenToLandscape
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1396543025
 MonoBehaviour:
@@ -8410,6 +8434,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Animales
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1030066252}
+        m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
+        m_MethodName: SetScreenToLandscape
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1846596494
 MonoBehaviour:

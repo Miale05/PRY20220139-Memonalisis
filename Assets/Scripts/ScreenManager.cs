@@ -5,6 +5,15 @@ using UnityEngine.XR.ARFoundation;
 
 public class ScreenManager : MonoBehaviour
 {
+
+    public void SetScreenToLandscape(bool landscape) {
+        if (landscape) {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+        } else {
+            Screen.orientation = ScreenOrientation.Portrait;
+        }
+    }
+
     public void ChangeMenuState(GameObject target) {
         target.SetActive(!target.activeSelf);
     }
