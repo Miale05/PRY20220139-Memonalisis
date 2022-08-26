@@ -12,8 +12,9 @@ public class MemoryManager : MonoBehaviour
     public LoadedFamiliar loadedFamiliar;
     public int modelVariations;
 
-    public Transform familyContainer;
+    public Transform basePieceContainer;
     public List<GameObject> basePieces;
+    public List<AudioClip> audioClips;
 
     public Transform activePieceContainer;
     public List<GameObject> activePieces;
@@ -26,13 +27,20 @@ public class MemoryManager : MonoBehaviour
     float timerStart;
     public bool ongoingGame;
 
+    public AudioClip correctAudio;
+    public AudioClip wrongAudio;
+    public AudioClip startAudio;
+    public AudioClip winAudio;
+
+    public AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
 
         loadedFamiliar = GeneralGameManager.instance.selectedFamiliar;
-        modelVariations = familyContainer.Find(loadedFamiliar.ToString()).childCount;
+        modelVariations = basePieceContainer.Find(loadedFamiliar.ToString()).childCount;
         GeneralGameManager.instance.SetMaxModelsLoaded(modelVariations*2);
 
         LoadBasePieces();
@@ -65,6 +73,14 @@ public class MemoryManager : MonoBehaviour
         }
     }
 
+    //Reproduce un audio utilizando el AudioSource del MemoryManager para tener el audio de la emocion y el del minijuego al mismo tiempo
+    public void PlayLocalAudio(AudioClip pieceAudio) {
+        source.Stop();
+        source.clip = pieceAudio;
+        source.Play();
+    }
+
+
     public void StartMinigame()
     {
         timerStart = Time.time;
@@ -75,10 +91,12 @@ public class MemoryManager : MonoBehaviour
 
         RefreshActivePieces();
 
-        //Debug.LogError(MemorySpawnableManager.instance.CheckMaxModelsCount());
+        //Checkea que ya haya spawneado el tablero
         //if (MemorySpawnableManager.instance.CheckMaxModelsCount())
         if (MemorySpawnableManager.instance.currentModelsCount >= 1)
         {
+            PlayLocalAudio(startAudio);
+
             InitializePieces();
             ShufflePieces();
 
@@ -108,9 +126,13 @@ public class MemoryManager : MonoBehaviour
         temp2.AddRange(Enum.GetValues(typeof(Emotions)).Cast<Emotions>().ToList());
         temp2.AddRange(Enum.GetValues(typeof(Emotions)).Cast<Emotions>().ToList());
 
+        List<AudioClip> temp3 = new List<AudioClip>();
+        temp3.AddRange(audioClips);
+        temp3.AddRange(audioClips);
+
         for (int i = 0; i < activePieces.Count; i++)
         {
-            activePieces[i].GetComponent<MemoryPiece>().InitializePiece(temp[i],temp2[i].ToString());
+            activePieces[i].GetComponent<MemoryPiece>().InitializePiece(temp[i],temp2[i].ToString(),temp3[i]);
         }
     }
 
@@ -138,10 +160,11 @@ public class MemoryManager : MonoBehaviour
 
     public void LoadBasePieces()
     {
-        Transform container = familyContainer.Find(loadedFamiliar.ToString());
+        Transform container = basePieceContainer.Find(loadedFamiliar.ToString());
         for (int i = 0; i < container.childCount; i++)
         {
             basePieces.Add(container.GetChild(i).gameObject);
+            audioClips.Add(container.GetChild(i).GetComponent<AudioSource>().clip);
         }
     }
 
@@ -155,6 +178,8 @@ public class MemoryManager : MonoBehaviour
             if (currentPiece.GetComponent<MemoryPiece>().emotionName == piece.GetComponent<MemoryPiece>().emotionName && piece != currentPiece)
             {
                 Debug.Log("CORRECTO");
+                PlayLocalAudio(correctAudio);
+
                 activePieces.Remove(piece);
                 activePieces.Remove(currentPiece);
 
@@ -166,6 +191,8 @@ public class MemoryManager : MonoBehaviour
             } else
             {
                 Debug.Log("ERROR!!!");
+                PlayLocalAudio(wrongAudio);
+
                 currentPiece.GetComponent<MemoryPiece>().Hide(true);
                 piece.GetComponent<MemoryPiece>().Hide(true);
                 currentPiece = null;
@@ -183,6 +210,8 @@ public class MemoryManager : MonoBehaviour
                 return;
             }
         }
+
+        PlayLocalAudio(winAudio);
 
         timerText.color = Color.green;
         timerText2.color = Color.green;

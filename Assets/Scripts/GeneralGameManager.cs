@@ -30,6 +30,7 @@ public class GeneralGameManager : MonoBehaviour
     public static GeneralGameManager instance;
     public LoadedFamiliar selectedFamiliar;
     public int maxModelsLoaded;
+    public AudioSource source;
 
     void Start()
     {

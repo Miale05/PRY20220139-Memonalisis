@@ -10,6 +10,7 @@ public class ScreenManager : MonoBehaviour
     }
 
     public void ChangeScenes(string target) {
+        GeneralGameManager.instance.source.Stop();
         SceneManager.LoadScene(target);
     }
 

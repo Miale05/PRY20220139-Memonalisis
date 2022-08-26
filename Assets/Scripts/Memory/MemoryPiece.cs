@@ -13,11 +13,13 @@ public class MemoryPiece : MonoBehaviour
     float extraFadeTime = 0;
     float fadeStart;
 
-    float holdTimeStart;
     public bool hasEmote;
     public FaceCamera emote;
 
     public Transform boardReference;
+
+    public AudioClip pieceAudio;
+    public AudioSource source;
 
     // Update is called once per frame
     void Update()
@@ -39,9 +41,14 @@ public class MemoryPiece : MonoBehaviour
         }
     }
 
+    //LLamado al seleccionar la pieza
     public void Select()
     {
-        holdTimeStart = Time.time;
+        //llamar audio
+        GeneralGameManager.instance.source.Stop();
+        GeneralGameManager.instance.source.clip = pieceAudio;
+        GeneralGameManager.instance.source.Play();
+
         if (isActive)
         {
             Show();
@@ -79,7 +86,7 @@ public class MemoryPiece : MonoBehaviour
         }
     }
 
-    public void InitializePiece(GameObject obj,string name)
+    public void InitializePiece(GameObject obj,string name, AudioClip sound)
     {
         if (transform.childCount > 1)
         {
@@ -89,6 +96,7 @@ public class MemoryPiece : MonoBehaviour
         GameObject temp = Instantiate(obj, transform.position, boardReference.rotation);
         temp.transform.SetParent(transform);
         emotionName = name;
+        pieceAudio = sound;
 
         transform.GetChild(1).localPosition = new Vector3(0,1,0);
         transform.GetChild(1).localScale = new Vector3(0.5f,5,0.5f);

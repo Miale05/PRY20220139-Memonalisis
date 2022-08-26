@@ -11,8 +11,9 @@ public class AnalisisManager : MonoBehaviour
     public LoadedFamiliar loadedFamiliar;
     public int modelVariations;
 
-    public Transform familyContainer;
+    public Transform basePieceContainer;
     public List<GameObject> basePieces;
+    public List<AudioClip> audioClips;
 
     public Transform activePieceContainer;
     public List<GameObject> activePieces;
@@ -23,7 +24,7 @@ public class AnalisisManager : MonoBehaviour
         instance = this;
 
         loadedFamiliar = GeneralGameManager.instance.selectedFamiliar;
-        modelVariations = familyContainer.Find(loadedFamiliar.ToString()).childCount;
+        modelVariations = basePieceContainer.Find(loadedFamiliar.ToString()).childCount;
         GeneralGameManager.instance.SetMaxModelsLoaded(modelVariations);
 
         LoadBasePieces();
@@ -37,10 +38,11 @@ public class AnalisisManager : MonoBehaviour
 
     public void LoadBasePieces()
     {
-        Transform container = familyContainer.Find(loadedFamiliar.ToString());
+        Transform container = basePieceContainer.Find(loadedFamiliar.ToString());
         for (int i = 0; i < container.childCount; i++)
         {
             basePieces.Add(container.GetChild(i).gameObject);
+            audioClips.Add(container.GetChild(i).GetComponent<AudioSource>().clip);
         }
     }
 
@@ -80,19 +82,23 @@ public class AnalisisManager : MonoBehaviour
         List<Emotions> temp2 = new List<Emotions>();
         temp2.AddRange(Enum.GetValues(typeof(Emotions)).Cast<Emotions>().ToList());
 
+        List<AudioClip> temp3 = new List<AudioClip>();
+        temp3.AddRange(audioClips);
+
         if (temp.Count != temp2.Count)
         {
             for (int i = 0; i < activePieces.Count; i++)
             {
-                activePieces[i].GetComponent<MemoryPiece>().InitializePiece(temp[i],"none");
+                activePieces[i].GetComponent<MemoryPiece>().InitializePiece(temp[i],"none",temp3[i]);
                 activePieces[i].GetComponent<MemoryPiece>().isActive = false;
             }
         } else
         {
             for (int i = 0; i < activePieces.Count; i++)
             {
-                activePieces[i].GetComponent<MemoryPiece>().InitializePiece(temp[i], temp2[i].ToString());
+                activePieces[i].GetComponent<MemoryPiece>().InitializePiece(temp[i], temp2[i].ToString(),temp3[i]);
                 activePieces[i].GetComponent<MemoryPiece>().isActive = false;
+                
             }
         }
     }
