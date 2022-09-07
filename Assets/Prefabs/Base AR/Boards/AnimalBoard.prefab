@@ -675,6 +675,7 @@ GameObject:
   - component: {fileID: 5390562061847529338}
   - component: {fileID: 5390562061847529339}
   - component: {fileID: 5390562061847529336}
+  - component: {fileID: 5171151181567556568}
   m_Layer: 0
   m_Name: AnimalBoard
   m_TagString: Untagged
@@ -751,6 +752,18 @@ MonoBehaviour:
   axis: {x: 0, y: -1, z: 0}
   space: 1
   sensitivity: 1
+--- !u!114 &5171151181567556568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5390562061847529337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efd57d8d319c2d47bf7491148c56ba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5390562061884198325
 GameObject:
   m_ObjectHideFlags: 0

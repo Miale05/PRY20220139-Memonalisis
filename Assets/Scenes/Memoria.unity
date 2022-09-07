@@ -7317,7 +7317,6 @@ MonoBehaviour:
   spawnablePrefab: {fileID: 4750560950845769743, guid: daa24471e07ef634f90bbf971819221d, type: 3}
   spawnParent: {fileID: 2061636203}
   currentModelsCount: 0
-  text: {fileID: 491759632}
 --- !u!114 &791694650
 MonoBehaviour:
   m_ObjectHideFlags: 0
