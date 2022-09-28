@@ -88,10 +88,13 @@ public class MemoryManager : MonoBehaviour
         if (ongoingGame)
         {
             //Determinacion de tiempo transcurrido
-            TimeSpan time = TimeSpan.FromSeconds(Time.time - timerStart);
+            float time = Time.time - timerStart;
+            int minutes = Mathf.FloorToInt(time / 60);
+            int seconds = (int) time % 60;
+
             //Configuracion de formato para el tiempo
-            timerText.text = string.Format("{0:00}:{1:00}", time.TotalMinutes, time.Seconds);
-            timerText2.text = string.Format("{0:00}:{1:00}", time.TotalMinutes, time.Seconds);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            timerText2.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         }
     }
